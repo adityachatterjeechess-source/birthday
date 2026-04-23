@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday My Love ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -18,23 +18,15 @@
       overflow-x: hidden;
       transition: background 1s ease;
       scroll-behavior: smooth;
+      color: #5c224b;
     }
 
-    .hidden { display: none; }
-    .center {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* LOCK SCREEN */
     #lockScreen {
       min-height: 100vh;
       display: flex;
       background: linear-gradient(135deg, #ffd6ec, #e1baf2);
       justify-content: center;
       align-items: center;
-      overflow: hidden;
       padding: 20px;
     }
 
@@ -44,48 +36,48 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      max-width: 950px;
-      background: rgba(255,255,255,0.35);
+      max-width: 980px;
+      background: rgba(255,255,255,0.28);
       backdrop-filter: blur(14px);
       border-radius: 28px;
       box-shadow: 0 0 30px rgba(255, 192, 203, 0.45);
-      padding: 25px;
+      padding: 24px;
       border: 1px solid rgba(255,255,255,0.35);
     }
 
     .lock-left {
       flex: 1;
       min-width: 280px;
-      padding: 20px;
+      padding: 18px;
       text-align: center;
     }
 
     .lock-left img {
       width: 100%;
       max-width: 360px;
-      height: 420px;
+      height: 430px;
       object-fit: cover;
       border-radius: 24px;
       box-shadow: 0 0 25px rgba(214, 51, 132, 0.35);
-      border: 4px solid rgba(255,255,255,0.5);
+      border: 4px solid rgba(255,255,255,0.55);
     }
 
     .lock-right {
       flex: 1;
       min-width: 280px;
-      padding: 20px;
+      padding: 18px;
       text-align: center;
     }
 
     .lock-right h2 {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: #d63384;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 2rem;
     }
 
     .lock-subtitle {
-      color: #8d3c74;
+      color: #924a80;
       font-size: 1rem;
       margin-bottom: 18px;
     }
@@ -95,7 +87,7 @@
       letter-spacing: 12px;
       margin-bottom: 18px;
       color: #a333a3;
-      font-weight: 600;
+      font-weight: 700;
       min-height: 34px;
     }
 
@@ -104,24 +96,25 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
       justify-items: center;
-      max-width: 250px;
+      max-width: 260px;
       margin: 20px auto;
     }
 
     .key {
-      width: 65px;
-      height: 65px;
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.92);
       box-shadow: 0 8px 18px rgba(0,0,0,0.08);
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: #d63384;
       transition: all 0.2s ease;
       user-select: none;
+      font-weight: 600;
     }
 
     .key:hover {
@@ -146,11 +139,16 @@
       border: none;
       background: #ffffff;
       color: #d63384;
-      padding: 10px 16px;
+      padding: 10px 18px;
       border-radius: 999px;
       cursor: pointer;
       box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-      font-weight: 500;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
+
+    .small-btn:hover {
+      transform: scale(1.05);
     }
 
     #message {
@@ -161,15 +159,14 @@
       font-weight: 500;
     }
 
-    /* MAIN WEBSITE */
     #mainContent {
       display: none;
       animation: fadeIn 1.2s ease forwards;
     }
 
     @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     section {
@@ -179,8 +176,9 @@
 
     .hero {
       min-height: 100vh;
-      background: linear-gradient(rgba(94, 20, 74, 0.35), rgba(214, 51, 132, 0.25)),
-                  url('your-photo.jpg') no-repeat center center/cover;
+      background:
+        linear-gradient(rgba(83, 15, 67, 0.45), rgba(214, 51, 132, 0.25)),
+        url('pic3.jpg') no-repeat center center/cover;
       color: white;
       display: flex;
       flex-direction: column;
@@ -191,11 +189,19 @@
     }
 
     .hero h1 {
-      font-size: 3.2rem;
+      font-size: 3.3rem;
       font-family: 'Great Vibes', cursive;
       color: #ffe4ed;
       animation: glow 2s infinite alternate;
       text-align: center;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      font-size: 1.15rem;
+      text-align: center;
+      max-width: 720px;
+      line-height: 1.8;
     }
 
     @keyframes glow {
@@ -203,17 +209,10 @@
       to { text-shadow: 0 0 35px #ff99cc; }
     }
 
-    .hero p {
-      margin-top: 15px;
-      font-size: 1.2rem;
-      text-align: center;
-      max-width: 700px;
-    }
-
     .section-title {
       font-size: 2.2rem;
       color: #c21872;
-      margin-bottom: 25px;
+      margin-bottom: 28px;
       font-family: 'Great Vibes', cursive;
     }
 
@@ -224,13 +223,13 @@
 
     .timeline-item {
       background: white;
-      border-radius: 20px;
+      border-radius: 22px;
       margin: 20px;
-      padding: 22px;
+      padding: 24px;
       box-shadow: 0 12px 26px rgba(0,0,0,0.08);
-      color: #a056a3;
+      color: #9b4a90;
       text-align: left;
-      line-height: 1.7;
+      line-height: 1.8;
       font-size: 1.02rem;
     }
 
@@ -238,7 +237,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
-      max-width: 950px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
@@ -262,7 +261,7 @@
       background: #fff0f6;
       border-radius: 24px;
       padding: 40px 28px;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: #b43b8a;
       box-shadow: 0 12px 24px rgba(255,192,203,0.22);
       line-height: 1.9;
@@ -316,6 +315,7 @@
       cursor: pointer;
       box-shadow: 0 0 16px rgba(255,150,200,0.5);
       transition: transform 0.3s;
+      font-weight: 600;
     }
 
     .surprise button:hover {
@@ -338,14 +338,14 @@
 
     #surpriseOverlayContent {
       max-width: 800px;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       line-height: 2;
       white-space: pre-line;
     }
 
     #surpriseMessage {
       margin-top: 24px;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       color: #b43b8a;
       font-family: 'Great Vibes', cursive;
       min-height: 48px;
@@ -369,6 +369,7 @@
       padding: 6px;
       box-shadow: 0 0 10px pink;
       z-index: 1000;
+      max-width: 260px;
     }
 
     .floating-heart {
@@ -397,22 +398,25 @@
       .gallery img {
         height: 210px;
       }
+
+      .timeline-item {
+        margin: 14px 0;
+      }
     }
   </style>
 </head>
-
 <body>
 
   <audio id="bgMusic" controls loop>
-    <source src="song.mp3" type="audio/mpeg">
+    <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- LOCK SCREEN -->
   <div id="lockScreen">
     <div class="lock-container">
       <div class="lock-left">
-        <img src="your-photo.jpg" alt="Us Together">
+        <img src="pic3.jpg" alt="Us Together">
       </div>
+
       <div class="lock-right">
         <h2>Enter Passcode 💖</h2>
         <div class="lock-subtitle">A little secret door to our world</div>
@@ -434,7 +438,6 @@
     </div>
   </div>
 
-  <!-- MAIN SITE -->
   <div id="mainContent">
     <section class="hero">
       <h1>Happy Birthday My Love ❤️</h1>
@@ -456,10 +459,10 @@
     <section>
       <h2 class="section-title">Memories 📸</h2>
       <div class="gallery">
-        <img src="memory1.jpg" alt="Memory 1">
-        <img src="memory2.jpg" alt="Memory 2">
-        <img src="memory3.jpg" alt="Memory 3">
-        <img src="memory4.jpg" alt="Memory 4">
+        <img src="pic5.jpg" alt="Memory 1">
+        <img src="pic4.jpg" alt="Memory 2">
+        <img src="pic2.jpg" alt="Memory 3">
+        <img src="pic1.jpg" alt="Memory 4">
       </div>
     </section>
 
@@ -467,9 +470,9 @@
       <h2 class="section-title">Love Letter 💌</h2>
       <div class="love-letter">
         <span class="script-line">My Love,</span>
-        Every moment with you feels like a page from the sweetest story ever written.  
-        Your smile calms me, your voice stays with me, and your presence makes everything feel lighter and warmer.  
-        On your birthday, I just want you to know one thing very clearly: you are deeply, truly, endlessly loved.  
+        Every moment with you feels like a page from the sweetest story ever written.
+        Your smile calms me, your voice stays with me, and your presence makes everything feel lighter and warmer.
+        On your birthday, I just want you to know one thing very clearly: you are deeply, truly, endlessly loved.
         No matter how many days pass, you will always be one of the most precious parts of my life. ❤️
       </div>
     </section>
@@ -504,19 +507,19 @@
   </div>
 
   <script>
-    const correctPasscode = "2304"; 
+    const correctPasscode = "2304";
     let entered = "";
 
-    const keys = document.querySelectorAll('.key');
-    const display = document.getElementById('passcodeDisplay');
-    const message = document.getElementById('message');
-    const lockScreen = document.getElementById('lockScreen');
-    const mainContent = document.getElementById('mainContent');
-    const unlockBtn = document.getElementById('unlockBtn');
-    const bgMusic = document.getElementById('bgMusic');
+    const keys = document.querySelectorAll(".key");
+    const display = document.getElementById("passcodeDisplay");
+    const message = document.getElementById("message");
+    const lockScreen = document.getElementById("lockScreen");
+    const mainContent = document.getElementById("mainContent");
+    const unlockBtn = document.getElementById("unlockBtn");
+    const bgMusic = document.getElementById("bgMusic");
 
-    keys.forEach(key => {
-      key.addEventListener('click', () => {
+    keys.forEach((key) => {
+      key.addEventListener("click", () => {
         const value = key.textContent;
 
         if (value === "C") {
@@ -539,7 +542,7 @@
       });
     });
 
-    unlockBtn.addEventListener('click', checkPasscode);
+    unlockBtn.addEventListener("click", checkPasscode);
 
     function checkPasscode() {
       if (entered.length !== 4) {
@@ -561,7 +564,7 @@
       confettiHearts(60);
 
       bgMusic.play().catch(() => {
-        console.log("Music autoplay blocked until interaction.");
+        console.log("Music blocked until user interaction is accepted.");
       });
 
       setTimeout(() => {
