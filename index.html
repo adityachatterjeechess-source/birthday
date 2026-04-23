@@ -1,11 +1,10 @@
-<!-- update -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday My Love ❤️</title>
-  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;600&display=swap)" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -28,48 +27,78 @@
       justify-content: center;
     }
 
-    /* ------------------ LOCK SCREEN ------------------ */
+    /* LOCK SCREEN */
     #lockScreen {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       background: linear-gradient(135deg, #ffd6ec, #e1baf2);
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      padding: 20px;
     }
+
     .lock-container {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      width: 90%;
-      max-width: 900px;
-      background: rgba(255,255,255,0.4);
-      border-radius: 25px;
-      box-shadow: 0 0 25px rgba(255, 192, 203, 0.6);
-      padding: 20px;
+      width: 100%;
+      max-width: 950px;
+      background: rgba(255,255,255,0.35);
+      backdrop-filter: blur(14px);
+      border-radius: 28px;
+      box-shadow: 0 0 30px rgba(255, 192, 203, 0.45);
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.35);
     }
+
     .lock-left {
       flex: 1;
-      min-width: 300px;
+      min-width: 280px;
       padding: 20px;
+      text-align: center;
     }
+
     .lock-left img {
       width: 100%;
-      border-radius: 20px;
-      filter: brightness(0.9);
+      max-width: 360px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 0 25px rgba(214, 51, 132, 0.35);
+      border: 4px solid rgba(255,255,255,0.5);
     }
+
     .lock-right {
       flex: 1;
       min-width: 280px;
       padding: 20px;
       text-align: center;
     }
+
     .lock-right h2 {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       color: #d63384;
       font-weight: 600;
+      font-size: 2rem;
     }
+
+    .lock-subtitle {
+      color: #8d3c74;
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    #passcodeDisplay {
+      font-size: 1.8rem;
+      letter-spacing: 12px;
+      margin-bottom: 18px;
+      color: #a333a3;
+      font-weight: 600;
+      min-height: 34px;
+    }
+
     .keypad {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -78,12 +107,13 @@
       max-width: 250px;
       margin: 20px auto;
     }
+
     .key {
-      width: 60px;
-      height: 60px;
+      width: 65px;
+      height: 65px;
       border-radius: 50%;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -91,27 +121,47 @@
       font-size: 1.5rem;
       color: #d63384;
       transition: all 0.2s ease;
+      user-select: none;
     }
+
+    .key:hover {
+      transform: translateY(-2px) scale(1.04);
+      background: #fff;
+    }
+
     .key:active {
       transform: scale(0.95);
       background: #ffc4e1;
     }
-    #passcodeDisplay {
-      font-size: 1.5rem;
-      letter-spacing: 10px;
-      margin-bottom: 15px;
-      color: #a333a3;
-      font-weight: 600;
-      min-height: 30px;
-    }
-    #message {
+
+    .action-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
       margin-top: 10px;
-      font-size: 0.9rem;
-      color: #d63384;
-      min-height: 20px;
+      flex-wrap: wrap;
     }
 
-    /* ------------------ MAIN WEBSITE ------------------ */
+    .small-btn {
+      border: none;
+      background: #ffffff;
+      color: #d63384;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      font-weight: 500;
+    }
+
+    #message {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: #d63384;
+      min-height: 22px;
+      font-weight: 500;
+    }
+
+    /* MAIN WEBSITE */
     #mainContent {
       display: none;
       animation: fadeIn 1.2s ease forwards;
@@ -128,86 +178,120 @@
     }
 
     .hero {
-      height: 100vh;
-      background: url('[i.ibb.co](https://i.ibb.co/rx6g9Y4/romantic-bg.jpg)') no-repeat center/cover;
+      min-height: 100vh;
+      background: linear-gradient(rgba(94, 20, 74, 0.35), rgba(214, 51, 132, 0.25)),
+                  url('your-photo.jpg') no-repeat center center/cover;
       color: white;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-shadow: 0 0 20px #000;
+      text-shadow: 0 0 20px rgba(0,0,0,0.4);
+      padding: 20px;
     }
 
     .hero h1 {
-      font-size: 2.8rem;
+      font-size: 3.2rem;
       font-family: 'Great Vibes', cursive;
       color: #ffe4ed;
       animation: glow 2s infinite alternate;
+      text-align: center;
     }
+
     @keyframes glow {
       from { text-shadow: 0 0 10px #ffb3d9; }
       to { text-shadow: 0 0 35px #ff99cc; }
     }
+
     .hero p {
       margin-top: 15px;
       font-size: 1.2rem;
+      text-align: center;
+      max-width: 700px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      color: #c21872;
+      margin-bottom: 25px;
+      font-family: 'Great Vibes', cursive;
     }
 
     .timeline {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
     }
+
     .timeline-item {
       background: white;
       border-radius: 20px;
       margin: 20px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 22px;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.08);
       color: #a056a3;
       text-align: left;
+      line-height: 1.7;
+      font-size: 1.02rem;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
-      max-width: 900px;
+      max-width: 950px;
       margin: 0 auto;
     }
+
     .gallery img {
       width: 100%;
-      border-radius: 15px;
-      transition: transform 0.3s ease;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 18px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
     }
+
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.04);
+      box-shadow: 0 18px 30px rgba(214, 51, 132, 0.25);
     }
 
     .love-letter {
-      max-width: 700px;
+      max-width: 760px;
       margin: auto;
       background: #fff0f6;
-      border-radius: 20px;
-      padding: 40px;
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.5rem;
+      border-radius: 24px;
+      padding: 40px 28px;
+      font-size: 1.15rem;
       color: #b43b8a;
-      box-shadow: 0 0 10px rgba(255,192,203,0.4);
+      box-shadow: 0 12px 24px rgba(255,192,203,0.22);
+      line-height: 1.9;
+    }
+
+    .love-letter .script-line {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
     }
 
     .reasons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 16px;
       margin-top: 30px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
     }
+
     .reason-card {
       width: 180px;
-      height: 180px;
-      border-radius: 20px;
+      min-height: 180px;
+      border-radius: 22px;
       background: #ffe6f2;
-      box-shadow: 0 0 15px rgba(255,150,200,0.3);
+      box-shadow: 0 10px 20px rgba(255,150,200,0.18);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -215,37 +299,65 @@
       color: #a333a3;
       font-weight: 500;
       transition: transform 0.3s ease;
+      padding: 16px;
     }
-    .reason-card:hover { transform: scale(1.08); }
+
+    .reason-card:hover {
+      transform: scale(1.08);
+    }
 
     .surprise button {
       background: linear-gradient(90deg, #ff77aa, #ffb6e9);
       border: none;
       color: white;
-      padding: 15px 30px;
-      border-radius: 30px;
+      padding: 16px 34px;
+      border-radius: 999px;
       font-size: 1rem;
       cursor: pointer;
-      box-shadow: 0 0 10px rgba(255,150,200,0.5);
+      box-shadow: 0 0 16px rgba(255,150,200,0.5);
       transition: transform 0.3s;
     }
+
     .surprise button:hover {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
+
+    #surpriseOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      color: #00ff95;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+      text-align: center;
+      font-family: monospace;
+    }
+
+    #surpriseOverlayContent {
+      max-width: 800px;
+      font-size: 1.3rem;
+      line-height: 2;
+      white-space: pre-line;
+    }
+
     #surpriseMessage {
-      margin-top: 20px;
-      font-size: 1.2rem;
+      margin-top: 24px;
+      font-size: 1.6rem;
       color: #b43b8a;
       font-family: 'Great Vibes', cursive;
+      min-height: 48px;
     }
 
     footer {
       background: #fce4ec;
       padding: 40px 10px;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       color: #d63384;
       font-family: 'Great Vibes', cursive;
-      position: relative;
+      text-align: center;
     }
 
     audio {
@@ -253,99 +365,117 @@
       bottom: 15px;
       right: 15px;
       background: white;
-      border-radius: 50%;
-      padding: 10px;
+      border-radius: 20px;
+      padding: 6px;
       box-shadow: 0 0 10px pink;
+      z-index: 1000;
     }
 
-    /* Floating hearts */
     .floating-heart {
       position: fixed;
       color: pink;
       animation: floatUp 5s linear infinite;
-      opacity: 0.6;
+      opacity: 0.75;
+      pointer-events: none;
+      z-index: 999;
     }
+
     @keyframes floatUp {
-      0% { transform: translateY(0); opacity: 0.6; }
+      0% { transform: translateY(0); opacity: 0.8; }
       100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .lock-left img {
+        height: 320px;
+      }
+
+      .gallery img {
+        height: 210px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<audio id="bgMusic" loop>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
+  <audio id="bgMusic" controls loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- LOCK SCREEN -->
   <div id="lockScreen">
     <div class="lock-container">
       <div class="lock-left">
-        <img src="[i.ibb.co](https://i.ibb.co/PmzqHrP/placeholder-romantic.jpg)" alt="Us Together">
+        <img src="your-photo.jpg" alt="Us Together">
       </div>
       <div class="lock-right">
         <h2>Enter Passcode 💖</h2>
+        <div class="lock-subtitle">A little secret door to our world</div>
         <div id="passcodeDisplay"></div>
+
         <div class="keypad">
           <div class="key">1</div><div class="key">2</div><div class="key">3</div>
           <div class="key">4</div><div class="key">5</div><div class="key">6</div>
           <div class="key">7</div><div class="key">8</div><div class="key">9</div>
-          <div></div><div class="key">0</div><div></div>
+          <div class="key" id="clearKey">C</div><div class="key">0</div><div class="key" id="backKey">⌫</div>
         </div>
+
+        <div class="action-row">
+          <button class="small-btn" id="unlockBtn">Unlock</button>
+        </div>
+
         <div id="message"></div>
       </div>
     </div>
   </div>
-  <script>
-function unlock() {
-  document.getElementById("bgMusic").play();
-}
-</script>
-  </body>
 
   <!-- MAIN SITE -->
   <div id="mainContent">
     <section class="hero">
       <h1>Happy Birthday My Love ❤️</h1>
-      <p>You are the most beautiful part of my life</p>
+      <p>
+        Today is not just your birthday. It is a celebration of the most beautiful soul in my life,
+        the person who turned ordinary days into unforgettable memories.
+      </p>
     </section>
 
     <section>
-      <h2>Our Story ✨</h2>
+      <h2 class="section-title">Our Story ✨</h2>
       <div class="timeline">
-        <div class="timeline-item">💫 The day we first met — my world quietly shifted.</div>
-        <div class="timeline-item">💌 Our first chat — endless smiles through tiny words.</div>
-        <div class="timeline-item">🌸 Every memory since then — pure magic.</div>
+        <div class="timeline-item">💫 From the first moment, something felt different. Maybe not loud, maybe not dramatic — but special in the softest and most real way.</div>
+        <div class="timeline-item">💌 Then came the little talks, the smiles, the growing comfort, and those moments that slowly became my favorite part of life.</div>
+        <div class="timeline-item">🌸 And now every memory with you feels like magic — the kind I never want to lose, never want to replace, and never want to end.</div>
       </div>
     </section>
 
     <section>
-      <h2>Memories 📸</h2>
+      <h2 class="section-title">Memories 📸</h2>
       <div class="gallery">
-        <img src="[i.ibb.co](https://i.ibb.co/3h1sW4j/photo1.jpg)">
-        <img src="[i.ibb.co](https://i.ibb.co/B3nxD4j/photo2.jpg)">
-        <img src="[i.ibb.co](https://i.ibb.co/6PFWktG/photo3.jpg)">
-        <img src="[i.ibb.co](https://i.ibb.co/QF3phMw/photo4.jpg)">
+        <img src="memory1.jpg" alt="Memory 1">
+        <img src="memory2.jpg" alt="Memory 2">
+        <img src="memory3.jpg" alt="Memory 3">
+        <img src="memory4.jpg" alt="Memory 4">
       </div>
     </section>
 
     <section>
-      <h2>Love Letter 💌</h2>
+      <h2 class="section-title">Love Letter 💌</h2>
       <div class="love-letter">
-        My dearest love,<br><br>
-        Every moment with you feels like a page of a fairytale I never want to end. Your smile lights up my world, and your kindness makes my heart bloom.
-        On your special day, I just want you to feel how deeply loved you are — by me, endlessly. We both gave so much effort and we’ll keep giving… till our last breath.
-        Some people call it a waste of time…
-But for me…
-
-this is LOVE ❤️
-this is US 💫 💖
+        <span class="script-line">My Love,</span>
+        Every moment with you feels like a page from the sweetest story ever written.  
+        Your smile calms me, your voice stays with me, and your presence makes everything feel lighter and warmer.  
+        On your birthday, I just want you to know one thing very clearly: you are deeply, truly, endlessly loved.  
+        No matter how many days pass, you will always be one of the most precious parts of my life. ❤️
       </div>
     </section>
 
     <section>
-      <h2>Reasons I Love You 💕</h2>
+      <h2 class="section-title">Reasons I Love You 💕</h2>
       <div class="reasons">
         <div class="reason-card">Your smile</div>
         <div class="reason-card">Your heart</div>
@@ -353,13 +483,13 @@ this is US 💫 💖
         <div class="reason-card">Your care</div>
         <div class="reason-card">Your strength</div>
         <div class="reason-card">Your soul</div>
-        <div class="reason-card">Your patience</div>
-        <div class="reason-card">Just, YOU ❤️</div>
+        <div class="reason-card">The peace I feel with you</div>
+        <div class="reason-card">Just, you ❤️</div>
       </div>
     </section>
 
     <section class="surprise">
-      <h2>Final Surprise 🎁</h2>
+      <h2 class="section-title">Final Surprise 🎁</h2>
       <button id="surpriseBtn">Click for Surprise 🎁</button>
       <div id="surpriseMessage"></div>
     </section>
@@ -367,74 +497,130 @@ this is US 💫 💖
     <footer>
       I Love You Forever ❤️
     </footer>
+  </div>
 
-    <audio id="bgMusic" controls autoplay loop>
-      <source src="[cdn.pixabay.com](https://cdn.pixabay.com/audio/2022/03/15/audio_8f938d4fad.mp3)" type="audio/mpeg">
-    </audio>
+  <div id="surpriseOverlay">
+    <div id="surpriseOverlayContent"></div>
   </div>
 
   <script>
-    const correctPasscode = "2304"; // 🔐 Change passcode here
+    const correctPasscode = "2304"; 
     let entered = "";
+
     const keys = document.querySelectorAll('.key');
     const display = document.getElementById('passcodeDisplay');
     const message = document.getElementById('message');
     const lockScreen = document.getElementById('lockScreen');
     const mainContent = document.getElementById('mainContent');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const bgMusic = document.getElementById('bgMusic');
 
     keys.forEach(key => {
       key.addEventListener('click', () => {
-        if (entered.length < 4) {
-          entered += key.textContent;
-          display.textContent = "*".repeat(entered.length);
+        const value = key.textContent;
+
+        if (value === "C") {
+          entered = "";
+          display.textContent = "";
+          message.textContent = "";
+          return;
         }
-        if (entered.length === 4) {
-          if (entered === correctPasscode) {
-            celebrate();
-          } else {
-            message.textContent = "Oops! Try again my love 💕";
-            entered = "";
-            display.textContent = "";
-          }
+
+        if (value === "⌫") {
+          entered = entered.slice(0, -1);
+          display.textContent = "•".repeat(entered.length);
+          return;
+        }
+
+        if (entered.length < 4 && !isNaN(value)) {
+          entered += value;
+          display.textContent = "•".repeat(entered.length);
         }
       });
     });
 
+    unlockBtn.addEventListener('click', checkPasscode);
+
+    function checkPasscode() {
+      if (entered.length !== 4) {
+        message.textContent = "Enter all 4 digits first 💕";
+        return;
+      }
+
+      if (entered === correctPasscode) {
+        celebrate();
+      } else {
+        message.textContent = "Oops! Wrong passcode, try again my love 💖";
+        entered = "";
+        display.textContent = "";
+      }
+    }
+
     function celebrate() {
       message.textContent = "Unlocked with love 💖";
-      confettiHearts();
-      playCelebrationSound();
+      confettiHearts(60);
+
+      bgMusic.play().catch(() => {
+        console.log("Music autoplay blocked until interaction.");
+      });
+
       setTimeout(() => {
         lockScreen.style.display = "none";
         mainContent.style.display = "block";
+        window.scrollTo(0, 0);
       }, 1800);
     }
 
-    function playCelebrationSound() {
-      const audio = new Audio("[cdn.pixabay.com](https://cdn.pixabay.com/audio/2021/09/01/audio_8a3b73543c.mp3)");
-      audio.play();
-    }
-
-    function confettiHearts() {
-      for (let i = 0; i < 50; i++) {
+    function confettiHearts(total = 40) {
+      for (let i = 0; i < total; i++) {
         const heart = document.createElement("div");
         heart.classList.add("floating-heart");
-        heart.innerHTML = "💖";
+        heart.innerHTML = Math.random() > 0.5 ? "💖" : "💕";
         heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = Math.random() * 24 + 12 + "px";
+        heart.style.bottom = "-20px";
+        heart.style.fontSize = Math.random() * 24 + 14 + "px";
         heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 5000);
       }
     }
 
-    // Surprise button
     const surpriseBtn = document.getElementById("surpriseBtn");
     const surpriseMessage = document.getElementById("surpriseMessage");
-    surpriseBtn.addEventListener("click", () => {
-      surpriseMessage.textContent = "Forever yours, in this life and the next 💞";
-      confettiHearts();
-    });
+    const surpriseOverlay = document.getElementById("surpriseOverlay");
+    const surpriseOverlayContent = document.getElementById("surpriseOverlayContent");
+
+    surpriseBtn.addEventListener("click", runCrazySurprise);
+
+    function runCrazySurprise() {
+      const lines = [
+        "ACCESSING HEART SYSTEM...",
+        "SEARCHING MOST BEAUTIFUL PERSON ON EARTH...",
+        "MATCH FOUND.",
+        "NAME: THE BIRTHDAY GIRL ❤️",
+        "STATUS: TOO PRECIOUS TO HANDLE",
+        "FINAL RESULT: I LOVE YOU MORE THAN WORDS."
+      ];
+
+      surpriseOverlay.style.display = "flex";
+      surpriseOverlayContent.textContent = "";
+      surpriseMessage.textContent = "";
+      let i = 0;
+
+      const interval = setInterval(() => {
+        surpriseOverlayContent.textContent += lines[i] + "\n";
+        i++;
+
+        if (i >= lines.length) {
+          clearInterval(interval);
+          setTimeout(() => {
+            surpriseOverlay.style.display = "none";
+            surpriseMessage.textContent = "Forever yours, in this life and every lifetime 💞";
+            confettiHearts(90);
+          }, 1800);
+        }
+      }, 900);
+    }
   </script>
 </body>
 </html>
