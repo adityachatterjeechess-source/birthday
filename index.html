@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday My Love ❤️</title>
+  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;600&display=swap)" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fbeaff;
+      overflow-x: hidden;
+      transition: background 1s ease;
+      scroll-behavior: smooth;
+    }
+
+    .hidden { display: none; }
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ------------------ LOCK SCREEN ------------------ */
+    #lockScreen {
+      height: 100vh;
+      display: flex;
+      background: linear-gradient(135deg, #ffd6ec, #e1baf2);
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .lock-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      max-width: 900px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(255, 192, 203, 0.6);
+      padding: 20px;
+    }
+    .lock-left {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+    }
+    .lock-left img {
+      width: 100%;
+      border-radius: 20px;
+      filter: brightness(0.9);
+    }
+    .lock-right {
+      flex: 1;
+      min-width: 280px;
+      padding: 20px;
+      text-align: center;
+    }
+    .lock-right h2 {
+      margin-bottom: 20px;
+      color: #d63384;
+      font-weight: 600;
+    }
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      justify-items: center;
+      max-width: 250px;
+      margin: 20px auto;
+    }
+    .key {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #d63384;
+      transition: all 0.2s ease;
+    }
+    .key:active {
+      transform: scale(0.95);
+      background: #ffc4e1;
+    }
+    #passcodeDisplay {
+      font-size: 1.5rem;
+      letter-spacing: 10px;
+      margin-bottom: 15px;
+      color: #a333a3;
+      font-weight: 600;
+      min-height: 30px;
+    }
+    #message {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #d63384;
+      min-height: 20px;
+    }
+
+    /* ------------------ MAIN WEBSITE ------------------ */
+    #mainContent {
+      display: none;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('[i.ibb.co](https://i.ibb.co/rx6g9Y4/romantic-bg.jpg)') no-repeat center/cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 0 0 20px #000;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-family: 'Great Vibes', cursive;
+      color: #ffe4ed;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ffb3d9; }
+      to { text-shadow: 0 0 35px #ff99cc; }
+    }
+    .hero p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timeline-item {
+      background: white;
+      border-radius: 20px;
+      margin: 20px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: #a056a3;
+      text-align: left;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .love-letter {
+      max-width: 700px;
+      margin: auto;
+      background: #fff0f6;
+      border-radius: 20px;
+      padding: 40px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.5rem;
+      color: #b43b8a;
+      box-shadow: 0 0 10px rgba(255,192,203,0.4);
+    }
+
+    .reasons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .reason-card {
+      width: 180px;
+      height: 180px;
+      border-radius: 20px;
+      background: #ffe6f2;
+      box-shadow: 0 0 15px rgba(255,150,200,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #a333a3;
+      font-weight: 500;
+      transition: transform 0.3s ease;
+    }
+    .reason-card:hover { transform: scale(1.08); }
+
+    .surprise button {
+      background: linear-gradient(90deg, #ff77aa, #ffb6e9);
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255,150,200,0.5);
+      transition: transform 0.3s;
+    }
+    .surprise button:hover {
+      transform: scale(1.1);
+    }
+    #surpriseMessage {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #b43b8a;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    footer {
+      background: #fce4ec;
+      padding: 40px 10px;
+      font-size: 1.5rem;
+      color: #d63384;
+      font-family: 'Great Vibes', cursive;
+      position: relative;
+    }
+
+    audio {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: white;
+      border-radius: 50%;
+      padding: 10px;
+      box-shadow: 0 0 10px pink;
+    }
+
+    /* Floating hearts */
+    .floating-heart {
+      position: fixed;
+      color: pink;
+      animation: floatUp 5s linear infinite;
+      opacity: 0.6;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0.6; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOCK SCREEN -->
+  <div id="lockScreen">
+    <div class="lock-container">
+      <div class="lock-left">
+        <img src="[i.ibb.co](https://i.ibb.co/PmzqHrP/placeholder-romantic.jpg)" alt="Us Together">
+      </div>
+      <div class="lock-right">
+        <h2>Enter Passcode 💖</h2>
+        <div id="passcodeDisplay"></div>
+        <div class="keypad">
+          <div class="key">1</div><div class="key">2</div><div class="key">3</div>
+          <div class="key">4</div><div class="key">5</div><div class="key">6</div>
+          <div class="key">7</div><div class="key">8</div><div class="key">9</div>
+          <div></div><div class="key">0</div><div></div>
+        </div>
+        <div id="message"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN SITE -->
+  <div id="mainContent">
+    <section class="hero">
+      <h1>Happy Birthday My Love ❤️</h1>
+      <p>You are the most beautiful part of my life</p>
+    </section>
+
+    <section>
+      <h2>Our Story ✨</h2>
+      <div class="timeline">
+        <div class="timeline-item">💫 The day we first met — my world quietly shifted.</div>
+        <div class="timeline-item">💌 Our first chat — endless smiles through tiny words.</div>
+        <div class="timeline-item">🌸 Every memory since then — pure magic.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Memories 📸</h2>
+      <div class="gallery">
+        <img src="[i.ibb.co](https://i.ibb.co/3h1sW4j/photo1.jpg)">
+        <img src="[i.ibb.co](https://i.ibb.co/B3nxD4j/photo2.jpg)">
+        <img src="[i.ibb.co](https://i.ibb.co/6PFWktG/photo3.jpg)">
+        <img src="[i.ibb.co](https://i.ibb.co/QF3phMw/photo4.jpg)">
+      </div>
+    </section>
+
+    <section>
+      <h2>Love Letter 💌</h2>
+      <div class="love-letter">
+        My dearest love,<br><br>
+        Every moment with you feels like a page of a fairytale I never want to end. Your smile lights up my world, and your kindness makes my heart bloom.
+        On your special day, I just want you to feel how deeply loved you are — by me, endlessly. 💖
+      </div>
+    </section>
+
+    <section>
+      <h2>Reasons I Love You 💕</h2>
+      <div class="reasons">
+        <div class="reason-card">Your smile</div>
+        <div class="reason-card">Your heart</div>
+        <div class="reason-card">Your laugh</div>
+        <div class="reason-card">Your care</div>
+        <div class="reason-card">Your strength</div>
+        <div class="reason-card">Your soul</div>
+        <div class="reason-card">Your patience</div>
+        <div class="reason-card">Just, YOU ❤️</div>
+      </div>
+    </section>
+
+    <section class="surprise">
+      <h2>Final Surprise 🎁</h2>
+      <button id="surpriseBtn">Click for Surprise 🎁</button>
+      <div id="surpriseMessage"></div>
+    </section>
+
+    <footer>
+      I Love You Forever ❤️
+    </footer>
+
+    <audio id="bgMusic" controls autoplay loop>
+      <source src="[cdn.pixabay.com](https://cdn.pixabay.com/audio/2022/03/15/audio_8f938d4fad.mp3)" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    const correctPasscode = "2304"; // 🔐 Change passcode here
+    let entered = "";
+    const keys = document.querySelectorAll('.key');
+    const display = document.getElementById('passcodeDisplay');
+    const message = document.getElementById('message');
+    const lockScreen = document.getElementById('lockScreen');
+    const mainContent = document.getElementById('mainContent');
+
+    keys.forEach(key => {
+      key.addEventListener('click', () => {
+        if (entered.length < 4) {
+          entered += key.textContent;
+          display.textContent = "*".repeat(entered.length);
+        }
+        if (entered.length === 4) {
+          if (entered === correctPasscode) {
+            celebrate();
+          } else {
+            message.textContent = "Oops! Try again my love 💕";
+            entered = "";
+            display.textContent = "";
+          }
+        }
+      });
+    });
+
+    function celebrate() {
+      message.textContent = "Unlocked with love 💖";
+      confettiHearts();
+      playCelebrationSound();
+      setTimeout(() => {
+        lockScreen.style.display = "none";
+        mainContent.style.display = "block";
+      }, 1800);
+    }
+
+    function playCelebrationSound() {
+      const audio = new Audio("[cdn.pixabay.com](https://cdn.pixabay.com/audio/2021/09/01/audio_8a3b73543c.mp3)");
+      audio.play();
+    }
+
+    function confettiHearts() {
+      for (let i = 0; i < 50; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("floating-heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 24 + 12 + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }
+    }
+
+    // Surprise button
+    const surpriseBtn = document.getElementById("surpriseBtn");
+    const surpriseMessage = document.getElementById("surpriseMessage");
+    surpriseBtn.addEventListener("click", () => {
+      surpriseMessage.textContent = "Forever yours, in this life and the next 💞";
+      confettiHearts();
+    });
+  </script>
+</body>
+</html>
