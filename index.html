@@ -274,6 +274,10 @@
 
 <body>
 
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
   <!-- LOCK SCREEN -->
   <div id="lockScreen">
     <div class="lock-container">
@@ -293,6 +297,12 @@
       </div>
     </div>
   </div>
+  <script>
+function unlock() {
+  document.getElementById("bgMusic").play();
+}
+</script>
+  </body>
 
   <!-- MAIN SITE -->
   <div id="mainContent">
